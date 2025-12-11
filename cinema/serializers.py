@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from rest_framework.relations import PrimaryKeyRelatedField
 
 from cinema.models import Movie, Actor, Genre, CinemaHall
