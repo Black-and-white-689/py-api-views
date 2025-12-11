@@ -11,7 +11,8 @@ class Movie(models.Model):
     genres = models.ManyToManyField(
         "Genre",
         null=True,
-        blank=True
+        blank=True,
+        related_name="movies"
     )
     duration = models.IntegerField()
 
