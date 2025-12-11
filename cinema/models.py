@@ -2,13 +2,11 @@ from django.db import models
 
 from django.db.models import ForeignKey
 
-
 class Movie(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     actors = models.ManyToManyField(
-        "Actor",
-        related_name="movies",
+        "Actor", related_name="movies",
         verbose_name="actor"
     )
     genres = models.ManyToManyField(
@@ -46,3 +44,7 @@ class CinemaHall(models.Model):
         return (f"Name: {self.name} "
                 f"(Rows: {self.rows}, "
                 f"Seats in rows: {self.seats_in_row})")
+
+    @property
+    def seats(self):
+        return self.rows * self.seats_in_row
